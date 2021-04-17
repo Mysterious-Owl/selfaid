@@ -1,20 +1,23 @@
 *{
-    margin: 0;
-    padding: 0;
     font-family: 'Roboto','sans-serif';
 }
-
+.container-md{
+    position: absolute;
+    top: 5%;
+    left: 51%;
+    transform: translate(-50%, 0%);
+}
 body{
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(./wallpaper.png);
-    height: 100vh;
+    /*background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(./wallpaper.png);*/
+    background-image: linear-gradient(to right, #000a20, #011938, #000a20);
     background-size: cover;
     background-position: center;
     border-left: 10px;
     font-size: 25px;
     text-align:unset;
-    margin-left: 10%;
     color:rgb(255, 255, 255);
     font-family: cursive;
+    margin: revert;
 }
 
 .h1{
