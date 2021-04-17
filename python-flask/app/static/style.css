@@ -21,7 +21,8 @@ a{
     text-decoration: none;
 }
 #task1{
-    background-color: #5fb3f9;
+/*    background-color: #5fb3f9;*/
+    background-color: #1060c3;
     color: floralwhite;
 }
 #task2{
@@ -29,6 +30,7 @@ a{
     color: floralwhite;
 }
 #task3{
-    background-color: #0a347d;
+/*    background-color: #0a347d;*/
+    background-color: #1060c3;
     color: floralwhite;
 }
