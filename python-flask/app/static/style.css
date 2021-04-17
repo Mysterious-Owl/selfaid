@@ -1,0 +1,31 @@
+div{
+/*    border-width: 5px;
+    border-style: solid;    */
+}
+.container-md{
+    position: absolute;
+    top: 5%;
+    left: 51%;
+    transform: translate(-50%, 0%);
+}
+.height15{
+    height: 15%;
+}
+.pad10{
+    padding-top: 10px;
+}
+#greeting{
+    font-weight: bold;
+}
+a{
+    text-decoration: none;
+}
+#task1{
+    background-color: #5fb3f9;
+}
+#task2{
+    background-color: #1060c3;
+}
+#task3{
+    background-color: #0a347d;
+}
