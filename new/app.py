@@ -203,7 +203,7 @@ def predict():
         if output == 1:
             return render_template('stress.html',
                                    prediction_text="Chronic Stress... No need to worry we will work together 😊😊 "
-                                                    "Move on to Task 3")
+                                                   "Move on to Task 3")
         elif output == 2:
             return render_template('stress.html',
                                    prediction_text="Episodic Acute Stress.. Lets resolve it together 😊😊 Move on to "
