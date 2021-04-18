@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Stress Classifier</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../static/css/stress.css">
+    </head>
+    <body  style="font-family: 'Courier New', monospace;">
+        <div class="container-md">
+            <h1> Measure Your Stress 🧐</h1>
+            <p> Answer some simple questions and we will work together further STRESS FREE!! </p>
+            <form action="{{ url_for('predict')}}" method="POST">
+                <div class="form-group">
+                    <label>What's your Age?</label>
+                    <select class="form-control" name="Age" id="Age" required="required">
+                        <option value="below 30">below 30</option>
+                        <option value="Between 30 and 50">Between 30 and 50</option>
+                        <option value="Above 50">Above 50</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>What's your Gender?</label>
+                    <select class="form-control" name="Gender" id="Gender" required="required">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Sector you are working?</label>
+                    <select class="form-control" name="Sector" id="Sector" required="required">
+                        <option value="Public">Public</option>
+                        <option value="Private">Private</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Daily Working hours?</label>
+                    <select class="form-control" name="Work_hours" id="Work_hours" required="required">
+                        <option value="5hrs">5 hours</option>
+                        <option value="10hrs">10 hours</option>
+                        <option value="More than 10hrs">More than 10hrs</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Work years span?</label>
+                    <select class="form-control" name="Work_years_span" id="Work_years_span" required="required">
+                        <option value="Below 5 years">Below 5 years</option>
+                        <option value="Between 5 to 10 years">Between 5 to 10 years</option>
+                        <option value="Above 10 Years">Above 10 Years</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Do you feel stress during work?</label>
+                    <select class="form-control" name="Stressed_during_work" id="Stressed_during_work" required="required">
+                        <option value="Sometimes">Sometimes</option>
+                        <option value="Very Often">Very Often</option>
+                        <option value="Never">Never</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Do you feel stress during work?</label>
+                    <select class="form-control" name="Feeling_on_job" id="Feeling_on_job" required="required">
+                        <option value="I am completely happy and enjoying the job">I am completely happy and enjoying the job</option>
+                        <option value="I sometimes feel dissatisfied but generally enjoy my job">I sometimes feel dissatisfied but generally enjoy my job</option>
+                        <option value="Most of the time I do not enjoy my work">Most of the time I do not enjoy my work</option>
+                        <option value="I have no interest at all in my work">I have no interest at all in my work</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>What are your feeling on job?</label>
+                    <select class="form-control" name="Source_of_stress" id="Source_of_stress" required="required">
+                        <option value="Over work">Over work</option>
+                        <option value="Family Issues">Family Issues</option>
+                        <option value="Out of Control Situation">Out of Control Situation</option>
+                        <option value="Colleague  Attitude">Colleague  Attitude</option>
+                        <option value="All above in different proportions">All above in different proportions</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>How do you usually handle stress?</label>
+                    <select class="form-control" name="Handling_stress" id="Handling_stress" required="required">
+                        <option value="Talking to an expert">Talking to an expert</option>
+                        <option value="Taking a sleep">Taking a sleep</option>
+                        <option value="Drugs / Alcohol / Smoking">Drugs / Alcohol / Smoking</option>
+                        <option value="Talking to your family members">Talking to your family members</option>
+                        <option value="Talking to the employer">Talking to the employer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>How frequently stress affect concentration?</label>
+                    <select class="form-control" name="Stress_affecting_concentration" id="Stress_affecting_concentration" required="required">
+                        <option value="Very often">Very often</option>
+                        <option value="Somewhat">Somewhat</option>
+                        <option value="Never">Never</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Effort to reduce stress to improve concentration?</label>
+                    <select class="form-control" name="Effort_to_reduce_stress_to_improve_concentration" id="Effort_to_reduce_stress_to_improve_concentration" required="required">
+                        <option value="No effort">No effort</option>
+                        <option value="Some effort">Some effort</option>
+                        <option value="Lot of effort">Lot of effort</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Do you feel stress due to too many duties?</label>
+                    <select class="form-control" name="Stress_due_to_too_many_duties" id="Stress_due_to_too_many_duties" required="required">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Stress due to age?</label>
+                    <select class="form-control" name="Stress_due_to_age" id="Stress_due_to_age" required="required">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Are you stressed for family?</label>
+                    <select class="form-control" name="Stress_reason_family" id="Stress_reason_family" required="required">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Do you feel stress about the competitions?</label>
+                    <select class="form-control" name="Stress_due_to_competition" id="Stress_due_to_competition" required="required">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label>Prefer to stay alone?</label>
+                    <select class="form-control" name="Prefer_to_stay_alone" id="Prefer_to_stay_alone" required="required">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Prefer taking responsibilities?</label>
+                    <select class="form-control" name="Prefer_taking_responsibilities" id="Prefer_taking_responsibilities" required="required">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Alcohol usage?</label>
+                    <select class="form-control" name="Alcohol_usage" id="Alcohol_usage" required="required">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>How frequently do you feel stress?</label>
+                    <select class="form-control" name="Stress_nervous_habits" id="Stress_nervous_habits" required="required">
+                        <option value="Daily">Daily</option>
+                        <option value="Occasionally">Occasionally</option>
+                        <option value="Sometime">Sometimes</option>
+                        <option value="Never">Never</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Does stress makes you nervous or anxious</label>
+                    <select class="form-control" name="Stress_makes_nervous" id="Stress_makes_nervous" required="required">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <br>
+                <button id="sub" type="submit" class="btn btn-primary">Calculate</button>
+            </form>
+
+            <br><h3>{{ prediction_text }}</h3>
+        </div>
+    </body>
+</html>
