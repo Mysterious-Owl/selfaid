@@ -133,9 +133,9 @@
     margin-left: 6rem;
 }
 img{
-    height: 20vh;
+    height: 40vh;
     width: auto!important;
-    margin-left: 40%;
+    margin: auto;
 }
 #part2 {
     width: 100%;
@@ -149,7 +149,7 @@ img{
 
 #about {
     width: 500px;
-    height: 500px;
+    height: fit-contentf;
     border: 1px solid #ebf5fc;
     margin-top: 3.5rem;
 }
@@ -160,6 +160,7 @@ img{
     font-size: 2.5rem;
     font-weight: ligher;
     padding: 1.39rem;
+    padding-bottom: 10px;
 }
 
 #about>p {
@@ -172,7 +173,7 @@ img{
 
 #sidecon {
     width: 330px;
-    height: 500px;
+    height: fit-content;
     border: 1px solid #ebf5fc;
     margin-top: 3.5rem;
 }
