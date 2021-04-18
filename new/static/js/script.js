@@ -1,10 +1,10 @@
 function load_news(data) {
     var news1 = document.getElementById("news1");
     var news2 = document.getElementById("news2");
-    var news3 = document.getElementById("news3");
+//    var news3 = document.getElementById("news3");
     news1.innerHTML = `<img src=\"${data.news1.img_irl}\" class=\"card-img-top\"><div class=\"card-body\"><a href=\"${data.news1.link}\">${data.news1.text}</a></div>`;
     news2.innerHTML = `<img src=\"${data.news2.img_irl}\" class=\"card-img-top\"><div class=\"card-body\"><a href=\"${data.news2.link}\">${data.news2.text}</a></div>`;
-    news3.innerHTML = `<img src=\"${data.news3.img_irl}\" class=\"card-img-top\"><div class=\"card-body\"><a href=\"${data.news3.link}\">${data.news3.text}</a></div>`;
+//    news3.innerHTML = `<img src=\"${data.news3.img_irl}\" class=\"card-img-top\"><div class=\"card-body\"><a href=\"${data.news3.link}\">${data.news3.text}</a></div>`;
 }
 function load_thought(data) {
     document.getElementById("thought").innerHTML = data.contents.quotes[0].quote;
@@ -27,7 +27,8 @@ xmlhttp.onreadystatechange = function() {
 xmlhttp.open("GET", "https://quotes.rest/qod?category=inspire&language=en", true);
 xmlhttp.send();
 
-var txt_news = '{"news1":{"img_irl":"https://www.goodnewsnetwork.org/wp-content/uploads/2021/04/meteor-shower-pexels-raman-deep-public-domain-324x160.jpg", "link":"https://www.goodnewsnetwork.org/lyrid-meteor-shower-april-2021-tips/", "text":"It’s Time to Watch the Biggest Meteor Shower of the Spring, Known for its Fireballs"}, "news2":{"img_irl":"https://www.goodnewsnetwork.org/wp-content/uploads/2021/04/meteor-shower-pexels-raman-deep-public-domain-324x160.jpg", "link":"https://www.goodnewsnetwork.org/lyrid-meteor-shower-april-2021-tips/", "text":"It’s Time to Watch the Biggest Meteor Shower of the Spring, Known for its Fireballs"}, "news3":{"img_irl":"https://www.goodnewsnetwork.org/wp-content/uploads/2021/04/meteor-shower-pexels-raman-deep-public-domain-324x160.jpg", "link":"https://www.goodnewsnetwork.org/lyrid-meteor-shower-april-2021-tips/", "text":"It’s Time to Watch the Biggest Meteor Shower of the Spring, Known for its Fireballs"}}';
+var txt_news = '{"news1":{"img_irl":"https://www.goodnewsnetwork.org/wp-content/uploads/2021/04/meteor-shower-pexels-raman-deep-public-domain-324x160.jpg", "link":"https://www.goodnewsnetwork.org/lyrid-meteor-shower-april-2021-tips/", "text":"It’s Time to Watch the Biggest Meteor Shower of the Spring, Known for its Fireballs"}, "news2":{"img_irl":"https://www.goodnewsnetwork.org/wp-content/uploads/2021/04/meteor-shower-pexels-raman-deep-public-domain-324x160.jpg", "link":"https://www.goodnewsnetwork.org/lyrid-meteor-shower-april-2021-tips/", "text":"It’s Time to Watch the Biggest Meteor Shower of the Spring, Known for its Fireballs"}}';
+// "news3":{"img_irl":"https://www.goodnewsnetwork.org/wp-content/uploads/2021/04/meteor-shower-pexels-raman-deep-public-domain-324x160.jpg", "link":"https://www.goodnewsnetwork.org/lyrid-meteor-shower-april-2021-tips/", "text":"It’s Time to Watch the Biggest Meteor Shower of the Spring, Known for its Fireballs"}}';
 var obj_news = JSON.parse(txt_news);
 load_news(obj_news);
 

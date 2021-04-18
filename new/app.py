@@ -33,6 +33,9 @@ def signin():
 def user():
     return render_template('user.html')
 
+@app.route('/book')
+def book():
+    return render_template('book.html')
 
 @app.route("/predict", methods=['POST'])
 def predict():
