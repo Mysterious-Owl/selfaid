@@ -168,7 +168,7 @@ def predict():
         else:
             Stress_makes_nervous=2
 
-        prediction=model.predict([[Age, Gender, Sector, Work_hours,
+        prediction = model.predict([[Age, Gender, Sector, Work_hours,
         Work_years_span, Stressed_during_work, Feeling_on_job,
         Source_of_stress, Handling_stress, Stress_affecting_concentration,
         Effort_to_reduce_stress_to_improve_concentration,
@@ -179,7 +179,7 @@ def predict():
 
         output=prediction[0]
         if output == 1:
-            return render_template('stress.html',prediction_texts="Chronic Stress... No need to worry we will work together 😊😊 Move on to Task 3")
+            return render_template('stress.html',prediction_text="Chronic Stress... No need to worry we will work together 😊😊 Move on to Task 3")
         elif output == 2:
             return render_template('stress.html',prediction_text="Episodic Acute Stress.. Lets resolve it together 😊😊 Move on to Task 2")
         elif output == 3:
