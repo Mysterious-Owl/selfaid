@@ -1,13 +1,10 @@
-from flask import Flask, render_template, request
-import requests
+from flask import Flask, render_template, request, redirect, url_for
 import pickle
-import numpy as np
-import sklearn
-from sklearn.preprocessing import StandardScaler
 
 app = Flask(__name__, template_folder='templates')
 model = pickle.load(open('finalized_model.pkl', 'rb'))
 output = -1
+user_log = 0
 
 
 @app.route('/')
@@ -22,11 +19,15 @@ def stress():
 
 @app.route('/login')
 def login():
+    global user_log
+    user_log = 1
     return render_template('login.html')
 
 
 @app.route('/sign')
 def signin():
+    global user_log
+    user_log = 1
     return render_template('sign.html')
 
 
@@ -56,6 +57,7 @@ def book():
 @app.route("/predict", methods=['POST'])
 def predict():
     global output
+    global user_log
     if request.method == 'POST':
         Age = request.form['Age']
         if Age == 'below 30':
@@ -220,8 +222,9 @@ def predict():
                                      Alcohol_usage, Stress_nervous_habits, Stress_makes_nervous]])
 
         output = prediction[0]
-        return user()
-        '''
+        if user_log == 1:
+            return redirect(url_for('user'))
+
         if output == 1:
             return render_template('stress.html',
                                    prediction_text="Chronic Stress... No need to worry we will work together 😊😊 "
@@ -234,7 +237,6 @@ def predict():
             return render_template('stress.html',
                                    prediction_text="Acute Stress.. We will easily come out STRESS FREE 😊😊 Move on "
                                                    "to Task 1")
-        '''
     else:
         return render_template('stress.html')
 
