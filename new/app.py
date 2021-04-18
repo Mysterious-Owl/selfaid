@@ -7,6 +7,7 @@ from sklearn.preprocessing import StandardScaler
 
 app = Flask(__name__, template_folder='templates')
 model = pickle.load(open('finalized_model.pkl', 'rb'))
+output = -1
 
 
 @app.route('/')
@@ -31,14 +32,30 @@ def signin():
 
 @app.route('/user')
 def user():
-    return render_template('user.html')
+    if output == -1:
+        return render_template('user.html')
+    elif output == 1:
+        return render_template('user.html',
+                               suggestio="Chronic Stress... No need to worry we will work together 😊😊",
+                               tasksug="We recommend you to perform Task 3, although you can do any")
+    elif output == 2:
+        return render_template('user.html',
+                               suggestio="Episodic Acute Stress.. Lets resolve it together 😊😊",
+                               tasksug="We recommend you to perform Task 3, although you can do any")
+    elif output == 3:
+        return render_template('user.html',
+                               suggestio="Acute Stress.. We will easily come out STRESS FREE 😊😊",
+                               tasksug="We recommend you to perform Task 3, although you can do any")
+
 
 @app.route('/book')
 def book():
     return render_template('book.html')
 
+
 @app.route("/predict", methods=['POST'])
 def predict():
+    global output
     if request.method == 'POST':
         Age = request.form['Age']
         if Age == 'below 30':
@@ -203,6 +220,8 @@ def predict():
                                      Alcohol_usage, Stress_nervous_habits, Stress_makes_nervous]])
 
         output = prediction[0]
+        return user()
+        '''
         if output == 1:
             return render_template('stress.html',
                                    prediction_text="Chronic Stress... No need to worry we will work together 😊😊 "
@@ -215,6 +234,7 @@ def predict():
             return render_template('stress.html',
                                    prediction_text="Acute Stress.. We will easily come out STRESS FREE 😊😊 Move on "
                                                    "to Task 1")
+        '''
     else:
         return render_template('stress.html')
 
