@@ -12,7 +12,7 @@ Machine learning (random forest classifier), Python, Flask, HTML, CSS, Javascrip
 [Youtube link](https://www.youtube.com/watch?v=rqu7A0ZQR4A) <br>
 
 ## To run locally
-Final working app in [final_app](https://github.com/Mysterious-Owl/hackdartmouth/tree/main/final_app) folder<br>
+Final working app in [final_app](https://github.com/Mysterious-Owl/selfaid/tree/main/final_app) folder<br>
 Download and then run the app.py file
 
 ## Teammates
