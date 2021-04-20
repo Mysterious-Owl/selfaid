@@ -1,4 +1,4 @@
-# HackDartmouth VIrtual
+# SelfAid
 ## Introduction
 This was a group project for HackDartmouth VIrtual aimed at identifying stress level and calm your mind accordingly and also calming content.<br>
 Stress may be good or bad depending on the situation. But "Too much of anything is bad". People mainly suffers three types of stress.<br> To overcome the stress our app promises you to feel a more balanced and more joyful life. The greatest weapon against stress is our ability to choose one thought over another.<br>
